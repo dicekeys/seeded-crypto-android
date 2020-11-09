@@ -1,4 +1,4 @@
-rpackage org.dicekeys.crypto.seeded_sampleapp
+package org.dicekeys.crypto.seeded_sampleapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
