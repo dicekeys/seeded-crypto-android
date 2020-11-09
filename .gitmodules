@@ -1,0 +1,3 @@
+[submodule "seeded/src/main/cpp/seeded-crypto"]
+	path = seeded/src/main/cpp/seeded-crypto
+	url = https://github.com/dicekeys/seeded-crypto.git
