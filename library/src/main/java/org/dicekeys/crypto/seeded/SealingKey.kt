@@ -1,8 +1,6 @@
 package org.dicekeys.crypto.seeded
 
 import android.graphics.Bitmap
-import org.dicekeys.crypto.seeded.utilities.QrCodeBitmap
-import org.dicekeys.crypto.seeded.utilities.qrCodeNativeSizeInQrCodeSquarePixels
 
 /**
  * A [SealingKey] is a pubic used to _seal_ messages, in combination with a
@@ -169,24 +167,4 @@ class SealingKey internal constructor(
             (other is SealingKey) &&
             recipe == other.recipe &&
             keyBytes.contentEquals(other.keyBytes)
-
-    /**
-     * Get a QR code that encodes this public key in JSON format.
-     */
-    fun getJsonQrCode(
-        maxEdgeLengthInDevicePixels: Int = qrCodeNativeSizeInQrCodeSquarePixels * 2
-    ): Bitmap = QrCodeBitmap(
-        "https://dicekeys.org/pk/",
-        toJson(),
-        maxEdgeLengthInDevicePixels
-    )
-
-    /**
-     * Get a QR code that encodes this public key in JSON format.
-     */
-    fun getJsonQrCode(
-            maxWidth: Int,
-            maxHeight: Int
-    ): Bitmap = getJsonQrCode(kotlin.math.min(maxWidth, maxHeight))
-
 }

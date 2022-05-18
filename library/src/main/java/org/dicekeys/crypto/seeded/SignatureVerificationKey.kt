@@ -1,8 +1,6 @@
 package org.dicekeys.crypto.seeded
 
 import android.graphics.Bitmap
-import org.dicekeys.crypto.seeded.utilities.QrCodeBitmap
-import org.dicekeys.crypto.seeded.utilities.qrCodeNativeSizeInQrCodeSquarePixels
 
 /**
  * A [SignatureVerificationKey] is used to verify that messages were
@@ -135,25 +133,4 @@ import org.dicekeys.crypto.seeded.utilities.qrCodeNativeSizeInQrCodeSquarePixels
         message: String,
         signature: ByteArray
     ) : Boolean = verifySignature( message.toByteArray(), signature)
-
-    /**
-     * Get a QR code that encodes this signature-verification key in JSON format.
-     */
-    fun getJsonQrCode(
-            maxEdgeLengthInDevicePixels: Int = qrCodeNativeSizeInQrCodeSquarePixels * 2
-    ): Bitmap = QrCodeBitmap(
-            "https://dicekeys.org/svk/",
-            toJson(),
-            maxEdgeLengthInDevicePixels
-    )
-
-    /**
-     * Get a QR code that encodes this signature-verification key in JSON format.
-     */
-    fun getJsonQrCode(
-            maxWidth: Int,
-            maxHeight: Int
-    ): Bitmap = getJsonQrCode(kotlin.math.min(maxWidth, maxHeight))
-
-
 }

@@ -19,7 +19,7 @@ allprojects {
 
 Add the dependency
 ```
-implementation "com.github.dicekeys:seeded-crypto-android:$latestSeededCryptoRelease"
+implementation "com.github.dicekeys:seeded-crypto-android:$latestRelease"
 ```
 
 
