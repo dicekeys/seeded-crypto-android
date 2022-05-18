@@ -1,3 +1,1 @@
-include ':seeded'
-include ':sampleapp'
-rootProject.name = "SeededSampleApp"
+include ':library'
