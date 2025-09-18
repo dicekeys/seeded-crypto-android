@@ -12,14 +12,14 @@ version = '1.0'
 
 android {
     namespace = 'org.dicekeys.crypto.seeded'
-    ndkVersion '23.1.7779620' // Latest LTS
+    ndkVersion '26.2.11394342' // Latest LTS
 
-    compileSdkVersion 32
+    compileSdkVersion 34
     buildToolsVersion "32.0.0"
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 32
+        targetSdkVersion 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -54,7 +54,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    
     kotlinOptions {
         jvmTarget = '1.8'
     }

@@ -6,6 +6,10 @@ project(jni-seeded-crypto
     LANGUAGES CXX
 )
 
+# 🔹 Apply 16 KB page-size linker flag globally to ALL shared libs
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-z,max-page-size=16384")
+set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -Wl,-z,max-page-size=16384")
+
 add_subdirectory("seeded-crypto")
 
 add_library(
