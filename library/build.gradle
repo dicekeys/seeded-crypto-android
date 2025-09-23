@@ -1,9 +1,10 @@
 plugins {
     id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'kotlin-parcelize'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.parcelize'
+    id 'org.jetbrains.kotlin.plugin.serialization'
     id 'org.jetbrains.dokka'
+    id 'kotlin-kapt'
     id 'maven-publish'
 }
 
@@ -12,14 +13,12 @@ version = '1.0'
 
 android {
     namespace = 'org.dicekeys.crypto.seeded'
-    ndkVersion '26.2.11394342' // Latest LTS
+    ndkVersion '27.3.13750724' // Latest LTS
 
-    compileSdkVersion 34
-    buildToolsVersion "32.0.0"
-
+    compileSdkVersion 36
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 34
+        targetSdkVersion 35
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -27,7 +26,7 @@ android {
         externalNativeBuild {
             cmake {
                 cppFlags "-std=c++11"
-                arguments "-DANDROID_STL=c++_shared"
+                arguments "-DANDROID_STL=c++_shared", "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
             }
         }
     }
@@ -57,6 +56,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildToolsVersion buildToolsVersion
 }
 
 dependencies {
