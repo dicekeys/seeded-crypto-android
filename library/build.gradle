@@ -9,7 +9,7 @@ plugins {
 }
 
 group = 'org.dicekeys'
-version = '0.0.8'
+version = '0.0.9'
 
 android {
     namespace = 'org.dicekeys.crypto.seeded'
@@ -79,9 +79,9 @@ afterEvaluate {
             // ✅ Only one artifact published
             release(MavenPublication) {
                 from components.release
-                // groupId = "org.dicekeys"
+                groupId = "org.dicekeys"
                 // artifactId = "seeded"
-                // version = "0.0.7"
+                // version = "0.0.9"
             }
         }
     }
