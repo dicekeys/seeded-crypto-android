@@ -68,13 +68,21 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            // Creates a Maven publication called "release".
+            // Only publish one artifact called "seeded"
             release(MavenPublication) {
                 from components.release
-                groupId = 'org.dicekeys'
-                artifactId = 'seeded'
-                version = '1.0'
+                groupId = "org.dicekeys"
+                artifactId = "seeded"
+                version = "1.0"
+            }
+        }
+
+        // ✅ Prevent duplicate artifacts (removes library.aar)
+        publications.configureEach {
+            if (name != "release") {
+                it.artifacts.clear()
             }
         }
     }
 }
+
