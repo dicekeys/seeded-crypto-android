@@ -76,12 +76,8 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            // ✅ Only one artifact published
             release(MavenPublication) {
                 from components.release
-                groupId = "org.dicekeys"
-                // artifactId = "seeded"
-                // version = "0.0.9"
             }
         }
     }
